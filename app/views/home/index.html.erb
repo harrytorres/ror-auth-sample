@@ -1,0 +1,16 @@
+<h1>Welcome</h1>
+<% if user_signed_in? %>
+  <p>
+    Logged in as: <%= current_user.email %>
+  </p>
+  <p>
+    <%= link_to 'Edit Profile', edit_user_registration_path %> |
+    <%= link_to 'Change Password', edit_user_registration_path(anchor: 'password') %> |
+    <%= link_to 'Log out', destroy_user_session_path, method: :delete %>
+  </p>
+<% else %>
+  <p>
+    <%= link_to 'Sign up', new_user_registration_path %> or
+    <%= link_to 'Log in', new_user_session_path %>
+  </p>
+<% end %>
