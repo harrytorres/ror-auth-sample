@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  namespace :admin do
+    resources :users, only: [:index, :update]
+  end
+  resources :books
 
   devise_for :users do
     get 'users/sign_out' => "devise/sessions#destroy"

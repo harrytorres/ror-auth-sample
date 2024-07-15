@@ -1,0 +1,21 @@
+<h1>All Users</h1>
+
+<table>
+  <tr>
+    <th>Email</th>
+    <th>Admin</th>
+    <th>Actions</th>
+  </tr>
+  <% @users.each do |user| %>
+    <tr>
+      <td><%= user.email %></td>
+      <td><%= user.admin? %></td>
+      <td>
+        <%= form_with model: [:admin, user], local: true do |f| %>
+          <%= f.hidden_field :admin, value: !user.admin? %>
+          <%= f.submit user.admin? ? "Revoke Admin" : "Make Admin" %>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+</table>

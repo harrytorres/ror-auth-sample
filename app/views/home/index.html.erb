@@ -8,6 +8,11 @@
     <%= link_to 'Change Password', edit_user_registration_path(anchor: 'password') %> |
     <%= link_to 'Log out', destroy_user_session_path, method: :delete %>
   </p>
+
+  <% if current_user.admin? %>
+    <p> <%= link_to 'Admin Page', admin_users_path %> </p>
+  <% end %>
+
 <% else %>
   <p>
     <%= link_to 'Sign up', new_user_registration_path %> or
