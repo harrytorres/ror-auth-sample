@@ -1,0 +1,206 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+ *,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+ * {
+  margin: 0;
+  padding: 0;
+}
+
+ html {
+  overflow-y: scroll;
+  height: 100%;
+}
+
+ body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+
+  background-color: var(--color-background);
+  color: var(--color-text-body);
+  line-height: var(--line-height-body);
+  font-family: var(--font-family-sans);
+}
+
+ img,
+picture,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+ input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+ h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--color-text-header);
+  line-height: var(--line-height-headers);
+}
+
+ h1 {
+  font-size: var(--font-size-xxxl);
+}
+
+ h2 {
+  font-size: var(--font-size-xxl);
+}
+
+ h3 {
+  font-size: var(--font-size-xl);
+}
+
+ h4 {
+  font-size: var(--font-size-l);
+}
+
+ a {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color 200ms;
+
+  &:hover,
+  &:focus,
+  &:active {
+    color: var(--color-primary-rotate);
+  }
+}
+
+ :root {
+  --font-family-sans: 'Lato', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+  --line-height-headers: 1.1;
+  --line-height-body:    1.5;
+
+  --font-size-xs: 0.75rem;  
+  --font-size-s: 0.875rem;  
+  --font-size-m: 1rem;      
+  --font-size-l: 1.125rem;   
+  --font-size-xl: 1.25rem;   
+  --font-size-xxl: 1.5rem;   
+  --font-size-xxxl: 2rem;    
+  --font-size-xxxxl: 2.5rem; 
+
+  --color-text-header: hsl(0, 1%, 16%);
+  --color-text-body:   hsl(0, 5%, 25%);
+  --color-text-muted:  hsl(0, 1%, 44%);
+
+  --space-xxxs: 0.25rem; 
+  --space-xxs: 0.375rem; 
+  --space-xs: 0.5rem;    
+  --space-s: 0.75rem;    
+  --space-m: 1rem;       
+  --space-l: 1.5rem;     
+  --space-xl: 2rem;      
+  --space-xxl: 2.5rem;   
+  --space-xxxl: 3rem;    
+  --space-xxxxl: 4rem;   
+
+  --color-primary:          hsl(350, 67%, 50%);
+  --color-primary-rotate:   hsl(10, 73%, 54%);
+  --color-primary-bg:       hsl(0, 85%, 96%);
+  --color-secondary:        hsl(101, 45%, 56%);
+  --color-secondary-rotate: hsl(120, 45%, 56%);
+  --color-tertiary:         hsl(49, 89%, 64%);
+  --color-glint:            hsl(210, 100%, 82%);
+
+  --color-white:      hsl(0, 0%, 100%);
+  --color-background: hsl(30, 50%, 98%);
+  --color-light:      hsl(0, 6%, 93%);
+  --color-dark:       var(--color-text-header);
+
+  --border-radius: 0.375rem;
+
+  --border: solid 2px var(--color-light);
+
+  --shadow-large:  2px 4px 10px hsl(0 0% 0% / 0.1);
+  --shadow-small:  1px 3px 6px hsl(0 0% 0% / 0.1);
+}
+
+ .custom__btn {
+  position: relative;
+  padding: 10px 20px;
+  border-radius: 7px;
+  border: 1px solid rgb(61, 106, 255);
+  font-size: 14px;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 2px;
+  background: transparent;
+  color: #fff;
+  overflow: hidden;
+  box-shadow: 0 0 0 0 transparent;
+  transition: all 0.2s ease-in;
+}
+
+ .custom__btn:hover {
+  background: rgb(61, 106, 255);
+  box-shadow: 0 0 30px 5px rgba(0, 142, 236, 0.815);
+  transition: all 0.2s ease-out;
+}
+
+ .custom__btn:hover::before {
+  animation: sh02 0.5s 0s linear;
+}
+
+ .custom__btn::before {
+  content: '';
+  display: block;
+  width: 0px;
+  height: 86%;
+  position: absolute;
+  top: 7%;
+  left: 0%;
+  opacity: 0;
+  background: #fff;
+  box-shadow: 0 0 50px 30px #fff;
+  transform: skewX(-20deg);
+}
+
+ @keyframes sh02 {
+  from {
+    opacity: 0;
+    left: 0%;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+    left: 100%;
+  }
+}
+
+ .custom__btn:active {
+  box-shadow: 0 0 0 0 transparent;
+  transition: box-shadow 0.2s ease-in;
+}

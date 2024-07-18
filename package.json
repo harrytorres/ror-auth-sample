@@ -1,0 +1,19 @@
+{
+  "name": "ror-auth-sample",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/harrytorres/ror-auth-sample.git",
+  "author": "harrytorres <torresharry2@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "build": "esbuild app/javascript/application.js --bundle --sourcemap --outdir=app/assets/builds",
+    "build:css": "postcss app/assets/stylesheets/application.sass.scss -o app/assets/builds/application.css"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.19",
+    "esbuild": "^0.23.0",
+    "postcss": "^8.4.39",
+    "postcss-cli": "^11.0.0",
+    "postcss-import": "^16.1.0"
+  }
+}

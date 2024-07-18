@@ -85,4 +85,7 @@ Rails.application.configure do
     authentication: 'plain',
     enable_starttls_auto: true
   }
+
+  config.sass.preferred_syntax = :sass
+  config.sass.syntax = :sass
 end

@@ -72,3 +72,5 @@ end
 gem "devise"
 
 gem "cancancan"
+
+gem "sass-rails"
