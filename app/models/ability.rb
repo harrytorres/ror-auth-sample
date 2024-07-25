@@ -13,8 +13,8 @@ class Ability
     end
 
     
-    # return unless user.present?
-    #   can [:read, :update], Book, user_id: user.id
+    return unless user.present?
+      can [:read, :create], Book, user_id: user.id
     
     # return unless user.admin?
     #   can [:read, :update], Article 

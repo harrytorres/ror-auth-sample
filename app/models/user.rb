@@ -1,6 +1,17 @@
 class User < ApplicationRecord
   has_one :profile
+  has_many :book, dependent: :destroy
+
+  validates :name, presence: true
+  validates :email, presence: true, uniqueness: true, format: { with: /\A[^@\s]+@[^@\s]+\z/ }
+  validates :password, presence: true, length: { minimum: 6 }
+  validates :password_confirmation, presence: true
+  validates :admin, inclusion: { in: [true, false] }
+  validates :public_uid, presence: true, uniqueness: true
+
   generate_public_uid
+
+  accepts_nested_attributes_for :profile, :book
 
   after_create :create_profile
   # Include default devise modules. Others available are:
@@ -9,18 +20,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   
   scope :admins, -> { where(admin: true) }    
-
-  def self.find_puid(param)
-    find_by! public_uid: param.split('-').first
-  end
-  
-  def slug
-    name.downcase.gsub(/\s/,'-')
-  end
-
-  def to_param
-    "#{public_uid}-#{slug}"
-  end
 
   def create_profile
     Profile.create(user: self)
