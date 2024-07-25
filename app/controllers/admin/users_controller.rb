@@ -5,6 +5,10 @@ class Admin::UsersController < ApplicationController
     @users = User.all
   end
 
+  def show
+    @user = User.find_puid(param[:id])
+  end
+
   def update
     @user = User.find(params[:id])
       if @user.update(user_params)

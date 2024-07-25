@@ -74,3 +74,5 @@ gem "devise"
 gem "cancancan"
 
 gem "sass-rails"
+
+gem "public_uid"

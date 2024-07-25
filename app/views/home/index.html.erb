@@ -3,6 +3,9 @@
   <p>
     Logged in as: <%= current_user.email %>
   </p>
+   <p>
+    public uid: <%= current_user.public_uid %>
+  </p>
   <p>
     <%= link_to 'Edit Profile', edit_user_registration_path %> |
     <%= link_to 'Change Password', edit_user_registration_path(anchor: 'password') %> |
