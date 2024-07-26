@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  has_one :profile, inverse_of: :user
+  has_one :profile
   has_many :book, inverse_of: :user, dependent: :destroy
 
   validates :name, presence: true
