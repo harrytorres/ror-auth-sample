@@ -1,7 +1,7 @@
 class Profile < ApplicationRecord
   belongs_to :user
 
-  accepts_nested_attributes_for :user, :book
+  accepts_nested_attributes_for :user
 
   validates :name_must_match_user_name
   validates :email_must_match_user_email

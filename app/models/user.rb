@@ -12,7 +12,8 @@ class User < ApplicationRecord
   generate_public_uid
 
   accepts_nested_attributes_for :profile, :book
-
+  
+  before_validation :assign_public_uid, on: :create
   after_create :create_profile
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
@@ -23,5 +24,11 @@ class User < ApplicationRecord
 
   def create_profile
     Profile.create(user: self)
+  end
+
+  private 
+  
+  def assign_public_uid
+    self.public_uid ||= SecureRandom.uuid
   end
 end
