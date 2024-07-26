@@ -39,3 +39,5 @@
 /config/credentials/staging.key
 
 /config/credentials/production.key
+
+/db/schema.rb
