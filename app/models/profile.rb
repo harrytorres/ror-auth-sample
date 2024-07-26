@@ -1,7 +1,5 @@
 class Profile < ApplicationRecord
-  belongs_to :user
-
-  accepts_nested_attributes_for :user
+  belongs_to :user, inverse_of: :profile, optional: true
 
   validates :name_must_match_user_name
   validates :email_must_match_user_email
