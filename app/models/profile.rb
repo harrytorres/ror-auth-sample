@@ -5,7 +5,6 @@ class Profile < ApplicationRecord
   validates :mobile, :numericality => { :only_integer => true }
   validates :address, :length => { :maximum => 255 }
   validates :public_uid, presence: true, uniqueness: true
-  validates :user, presence: true
 
   generate_public_uid
 
