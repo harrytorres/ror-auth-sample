@@ -11,7 +11,8 @@ class User < ApplicationRecord
 
   generate_public_uid
 
-  accepts_nested_attributes_for :profile, :book
+  accepts_nested_attributes_for :profile
+  accepts_nested_attributes_for :book
   
   before_validation :assign_public_uid, on: :create
   after_create :create_profile
