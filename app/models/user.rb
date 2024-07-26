@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   has_one :profile
-  has_many :book, inverse_of: :user, dependent: :destroy
+  has_many :book, dependent: :destroy
 
   validates :name, presence: true
   validates :email, presence: true, uniqueness: true, format: { with: /\A[^@\s]+@[^@\s]+\z/ }
