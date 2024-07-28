@@ -1,5 +1,5 @@
 class Profile < ApplicationRecord
-  belongs_to :user
+  belongs_to :user, inverse_of: :profile, optional: true
 
   validates :first_name, :middle_name, :last_name, :presence => true
   validates :mobile, :numericality => { :only_integer => true }
