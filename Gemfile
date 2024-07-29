@@ -76,3 +76,5 @@ gem "cancancan"
 gem "sass-rails"
 
 gem "public_uid"
+
+gem "rolify"

@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  rolify
   has_one :profile, inverse_of: :user
   has_many :book, inverse_of: :user, dependent: :destroy
 
