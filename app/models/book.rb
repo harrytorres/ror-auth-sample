@@ -5,7 +5,11 @@ class Book < ApplicationRecord
   validates :title, :author, :publication_year, presence: true
   validates :publication_year, numericality: { only_integer: true }
   validates :public_uid, presence: true, uniqueness: true
+  before_validation :set_uuid, on: :create
   
-  generate_public_uid
+  private 
 
+  def set_uuid
+    self.public_uid ||= SecureRandom.uuid
+  end
 end
