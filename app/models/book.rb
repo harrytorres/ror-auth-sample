@@ -1,4 +1,5 @@
 class Book < ApplicationRecord
+  resourcify
   belongs_to :user, inverse_of: :book, optional: true
 
   validates :title, :author, :publication_year, presence: true
