@@ -9,11 +9,11 @@
   <% @users.each do |user| %>
     <tr>
       <td><%= user.email %></td>
-      <td><%= user.admin? %></td>
+      <td><%= user.has_role? :admin %></td>
       <td>
         <%= form_with model: [:admin, user], local: true do |f| %>
-          <%= f.hidden_field :admin, value: !user.admin? %>
-          <%= f.submit user.admin? ? "Revoke Admin" : "Make Admin" %>
+          <%= f.hidden_field :admin, value: (current_user.has_role?(:admin) ? "true" : "false") %>
+          <%= f.submit user.has_role? :admin ? "Revoke Admin" : "Make Admin" %>
         <% end %>
       </td>
     </tr>
