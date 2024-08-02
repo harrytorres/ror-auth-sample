@@ -9,7 +9,7 @@ class Ability
     if user.has_role? :admin
       can :manage, :all
 
-    elsif user.persisted?
+    elsif user.is_a?(Author)
       can :read, Book
       can :create, Book
       can :update, Book, user_id: user.id

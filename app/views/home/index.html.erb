@@ -14,7 +14,9 @@
     <%= link_to 'Log out', destroy_user_session_path, method: :delete %>
   </p>
 
-  <p><%= link_to 'Create Book',  new_book_path %></p>
+  <% if current_user.is_a?(Author) %>
+    <p><%= link_to 'Create Book',  new_book_path %></p>
+  <% end %>
 
   <% if current_user.has_role? :admin %>
     <p> <%= link_to 'Admin Page',  admin_users_path %> </p>
