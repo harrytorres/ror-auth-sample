@@ -78,3 +78,7 @@ gem "sass-rails"
 gem "public_uid"
 
 gem "rolify"
+
+gem "ancestry"
+
+gem "state_machines"
