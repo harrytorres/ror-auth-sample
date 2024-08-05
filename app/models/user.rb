@@ -18,6 +18,24 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   
+  state_machine  initial: :new do       
+    event :activate do
+      transition :new => :active
+    end
+
+    event :deactivate do
+      transition :active => :inactive
+    end 
+
+    event :ban do
+      transition [:new, :active, :inactive] => :banned
+    end
+
+    event :unban do
+      transition :banned => :active
+    end
+    
+  end
 
   def create_profile
     Profile.create(user: self)
