@@ -18,7 +18,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   
-  state_machine  initial: :new do       
+  state_machine  :state, initial: :new do       
     event :activate do
       transition :new => :active
     end
