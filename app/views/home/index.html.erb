@@ -1,4 +1,3 @@
-  <div class="welcome__card">
   <h1 class="card__header">Welcome</h1>
   <% if user_signed_in? %>
     <p>
@@ -14,6 +13,7 @@
       <%= link_to 'Change Password', edit_user_registration_path(anchor: 'password') %> |
       <%= link_to 'Log out', destroy_user_session_path, method: :delete %>
     </p>
+      <p><%= link_to 'Create Content',  new_content_type_path %></p>
 
     <% if current_user.is_a?(Author) %>
       <p><%= link_to 'Create Book',  new_book_path %></p>
@@ -29,4 +29,3 @@
       <%= link_to 'Log in', new_user_session_path,  class: "custom__btn" %>
     </p>
   <% end %>
-</div>
