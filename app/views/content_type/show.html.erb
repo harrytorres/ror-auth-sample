@@ -1,0 +1,31 @@
+<h1>Content Type Details</h1>
+
+<p>
+  <strong>Name:</strong>
+  <%= @content_type.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @content_type.description %>
+</p>
+
+<p>
+  <strong>Parent Content Type:</strong>
+  <%= @content_type.parent ? @content_type.parent.name : 'None' %>
+</p>
+
+<p>
+  <strong>State:</strong>
+  <%= @content_type.state %>
+</p>
+
+<%= link_to 'Edit', edit_content_type_path(@content_type) %> |
+<%= link_to 'Back', content_type_path %> |
+<%= link_to 'Delete', @content_type, method: :delete, data: { confirm: 'Are you sure?' } %>
+
+<% if @content_type.active? %>
+  <%= link_to 'Publish', publish_content_type_path(@content_type) %>
+<% elsif @content_type.published? %>
+  <%= link_to 'Unpublish', unpublish_content_type_path(@content_type) %>
+<% end %>

@@ -82,3 +82,5 @@ gem "rolify"
 gem "ancestry"
 
 gem "state_machines"
+
+gem "state_machines-activerecord"

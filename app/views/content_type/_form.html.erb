@@ -1,0 +1,31 @@
+<%= form_with(model: content_type, local: true) do |form| %>
+  <% if content_type.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(content_type.errors.count, "error") %> prohibited this content type from being saved:</h2>
+      <ul>
+        <% content_type.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :parent_id, "Parent Content Type" %>
+    <%= form.collection_select :parent_id, parent_content_types, :id, :name, include_blank: true %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

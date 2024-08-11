@@ -4,6 +4,13 @@ Rails.application.routes.draw do
   end
   resources :books
 
+  resources :content_type do
+    member do
+      patch :publish
+      patch :unpublish
+    end
+  end
+
   devise_for :users do
     get 'users/sign_out' => "devise/sessions#destroy"
   end
