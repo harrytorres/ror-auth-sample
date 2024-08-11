@@ -14,7 +14,7 @@ class ContentTypeController < ApplicationController
   end
 
   def create
-    @content_type = ContentType.new(category_params)
+    @content_type = ContentType.new(content_type_params)
     if @content_type.save
       redirect_to @content_type, notice: 'Content type was successfully created.'
     else
