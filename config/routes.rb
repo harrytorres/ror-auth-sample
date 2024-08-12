@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   end
   resources :books
 
-  resources :content_type do
+  resources :content_types do
     member do
       patch :publish
       patch :unpublish

@@ -4,30 +4,30 @@ class ContentType < ApplicationRecord
   validates :description, presence: true
   validates :public_uid, presence: true, uniqueness: true
   validates :state, presence: true
-  generate_public_uid generator: PublicUid::Generators::NumberRandom.new
+  before_validation :set_uuid, on: :create
 
   state_machine :state, initial: :active do
     event :activate do
       transition inactive: :active
     end
+    
     event :publish do
-      transition active: :published
+      transition %i[active inactive] => :published
     end
+
     event :unpublish do
-      transition publish: :active
+      transition published: :inactive
     end
   end
 
-  validate :can_be_published?, if: :publishing?
 
   private 
 
-  def publishing?
-    state_changed? && state == 'published'
-  end
-  
-  def can_be_published?
-    errors.add(:state, "can only be published if active") unless state_was == 'active'
+  def set_uuid
+    loop do
+      self.public_uid ||= SecureRandom.uuid
+      break unless ContentType.exists?(public_uid: public_uid)
+    end
   end
   
 end
