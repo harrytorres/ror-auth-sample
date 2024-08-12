@@ -1,5 +1,5 @@
-class ContentTypeController < ApplicationController
-   before_action :set_content_type, only: [:show, :edit, :update, :destroy, :publish, :unpublish]
+class ContentTypesController < ApplicationController
+   before_action :set_content_type, only: [:show, :edit, :update, :destroy]
 
   def index
     @content_type = ContentType.arrange(order: :name)
@@ -41,13 +41,21 @@ class ContentTypeController < ApplicationController
   end
 
   def publish
-    @content_type.publish
-    redirect_to @content_type, notice: 'Content type was successfully published.'
+    @content_type = ContentType.find(params[:id])
+    if @content_type.publish
+      redirect_to @content_type, notice: 'Content type was successfully published.'
+    else
+      redirect_to @content_type, alert: 'Failed to publish content type.'
+    end
   end
 
   def unpublish
-    @content_type.unpublish
-    redirect_to @content_type, notice: 'Content type was successfully unpublished.'
+     @content_type = ContentType.find(params[:id])
+     if @content_type.unpublish
+      redirect_to @content_type, notice: 'Content type was successfully unpublished.'
+    else
+      redirect_to @content_type, alert: 'Failed to unpublish content type.'
+    end
   end
 
   private
