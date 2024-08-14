@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   rolify
   has_one :profile, inverse_of: :user
+  has_many :book, foreign_key: :user_id, inverse_of: :user, dependent: :destroy
 
   validates :email, presence: true, uniqueness: true, format: { with: /\A[^@\s]+@[^@\s]+\z/ }
   validates :password, presence: true, length: { minimum: 6 }
@@ -10,6 +11,7 @@ class User < ApplicationRecord
   generate_public_uid
 
   accepts_nested_attributes_for :profile
+  accepts_nested_attributes_for :book
   
   before_validation :assign_public_uid, on: :create
   after_create :create_profile
