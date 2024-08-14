@@ -21,7 +21,7 @@ class BooksController < ApplicationController
 
   # POST /books or /books.json
   def create
-    @book = current_user.book.build(book_params)
+    @book = current_user.books.build(book_params)
     if @book.save
       redirect_to @book, notice: 'Book was successfully created.'
     else
