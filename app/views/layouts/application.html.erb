@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html class="h-full bg-white">
   <head>
     <title>RorAuthSample</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -7,15 +7,17 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag "application", media: "all", "data-turbo-track": "reload" %>
+    <script src="https://cdn.tailwindcss.com"></script>
   </head>
 
-  <body>
-    <% if notice %>
-     <p class="alert alert-success"><%= notice %></p>
-   <% end %>
-   <% if alert %>
-     <p class="alert alert-danger"><%= alert %></p>
-   <% end %>
+  <body class="h-full">
+    <% if user_signed_in? %>
+      <div class="relative pt-6 pb-16 sm:pb-24"><div>
+      <%= render 'layouts/navbar' %>
+    <% end %>
+    <% if alert %>
+      <p class="alert alert-danger"><%= alert %></p>
+    <% end %>
     <%= yield %>
   </body>
 </html>
