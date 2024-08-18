@@ -2,7 +2,7 @@ class ContentTypesController < ApplicationController
    before_action :set_content_type, only: [:show, :edit, :update, :destroy]
 
   def index
-    @content_type = ContentType.arrange(order: :name)
+    @content_type = ContentType.all
   end
 
   def show

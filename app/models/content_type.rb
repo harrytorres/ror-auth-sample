@@ -5,18 +5,18 @@ class ContentType < ApplicationRecord
   validates :public_uid, presence: true, uniqueness: true
   validates :state, presence: true
   before_validation :set_uuid, on: :create
-
+  
   state_machine :state, initial: :active do
     event :activate do
-      transition inactive: :active
+      transition new: :active
     end
     
     event :publish do
-      transition %i[active inactive] => :published
+      transition active: :published
     end
 
     event :unpublish do
-      transition published: :inactive
+      transition published: :active
     end
   end
 
