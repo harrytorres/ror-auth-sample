@@ -21,10 +21,10 @@
 </p>
 
 <%= link_to 'Edit', edit_content_type_path(@content_type) %> |
-<%= link_to 'Back', content_type_path %> |
+<%= link_to 'Back', content_types_path %> |
 <%= link_to 'Delete', @content_type, method: :delete, data: { confirm: 'Are you sure?' } %>
 
-<% if @content_type.inactive? %>
+<% if @content_type.active? %>
   <%= button_to 'Publish', publish_content_type_path(@content_type), method: :patch %>
 <% elsif @content_type.published? %>
   <%= button_to 'Unpublish', unpublish_content_type_path(@content_type), method: :patch %>
