@@ -1,0 +1,13 @@
+<% @rows.each do |parent, children| %>
+      <tr class="border-solid">
+        <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-0">
+          <p class="mx-0 lg:mx-4"><%= parent.name %></p>
+        </td>
+        <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-0">
+          <%= parent.description %>
+        </td>
+        <td class="whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-0">
+          <a href="<%= @edit_path.call(parent) %>" class="mx-0 lg:mx-4 text-indigo-600 hover:text-indigo-900">Edit<span class="sr-only">, <%= parent.name %></span></a>
+        </td>
+      </tr>
+    <% end %>
