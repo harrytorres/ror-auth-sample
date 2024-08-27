@@ -1,0 +1,13 @@
+<div class="mx-4 my-8 sm:px-6 lg:px-8 border border-2">
+  <div class="sm:flex sm:items-center">
+    <div class="sm:flex-auto">
+      <h1 class="text-base font-semibold leading-6 text-gray-900">Content Type</h1>
+      <p class="mt-2 text-sm text-gray-700">A list of all the Contents in your app including their name, description.</p>
+    </div>
+    <div class="mt-4 sm:ml-16 sm:mt-0 sm:flex-none">
+    </div>
+  </div>
+  <div class="-mx-4 mt-8 sm:-mx-0">
+    <%= render(ContainerTableComponent.new(rows: @sections, edit_path: ->(parent) { edit_section_path(parent) })) %>
+  </div>
+</div>

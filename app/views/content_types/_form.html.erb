@@ -11,8 +11,8 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name, class:"content-type-input" %>
+    <%= form.label :title %>
+    <%= form.text_field :title, class:"content-type-input" %>
   </div>
 
   <div class="field">
@@ -22,7 +22,7 @@
 
   <div class="field">
     <%= form.label :parent_id, "Parent Content Type" %>
-    <%= form.collection_select :parent_id, parent_content_type, :id, :name, include_blank: true %>
+    <%= form.collection_select :parent_id, parent_content_type, :id, :title, include_blank: true %>
   </div>
 
   <div class="actions">

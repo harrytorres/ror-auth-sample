@@ -86,3 +86,5 @@ gem "state_machines"
 gem "state_machines-activerecord"
 
 gem "view_component"
+
+gem "faker"

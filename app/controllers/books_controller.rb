@@ -4,10 +4,12 @@ class BooksController < ApplicationController
   # GET /books or /books.json
   def index
     @books = Book.all
+    @book = Book.new
   end
 
   # GET /books/1 or /books/1.json
   def show
+    @book = Book.find(params[:id])
   end
 
   # GET /books/new
@@ -17,15 +19,20 @@ class BooksController < ApplicationController
 
   # GET /books/1/edit
   def edit
+    @book = Book.find(params[:id])
   end
 
   # POST /books or /books.json
   def create
     @book = current_user.book.build(book_params)
-    if @book.save
-      redirect_to @book, notice: 'Book was successfully created.'
-    else
-      render :new
+
+    respond_to do |format|
+      if @book.save
+        format.html { redirect_to books_path, notice: "Book was successfully created." }
+      else
+        format.turbo_stream { render turbo_stream: turbo_stream.replace(@book), partial: "books/form", locals: { book: @book } }
+        format.html { render :new, status: :unprocessable_entity }
+      end
     end
   end
 

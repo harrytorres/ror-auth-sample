@@ -113,6 +113,8 @@ GEM
       warden (~> 1.2.3)
     drb (2.2.1)
     erubi (1.13.0)
+    faker (3.4.2)
+      i18n (>= 1.8.11, < 2)
     ffi (1.17.0-x64-mingw-ucrt)
     globalid (1.2.1)
       activesupport (>= 6.1)
@@ -291,6 +293,7 @@ DEPENDENCIES
   cssbundling-rails
   debug
   devise
+  faker
   jbuilder
   jsbundling-rails
   public_uid

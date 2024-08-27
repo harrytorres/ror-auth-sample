@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :sections
+  resources :subjects
   namespace :admin do
     resources :users, only: [:index, :update]
   end

@@ -5,5 +5,4 @@ class TableBodyComponent < ViewComponent::Base
     @rows = rows
     @edit_path = edit_path
   end
-
 end
