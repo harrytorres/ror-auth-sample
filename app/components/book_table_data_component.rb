@@ -1,6 +1,6 @@
 # frozen_string_literal: true
-
 class BookTableDataComponent < ViewComponent::Base
+  include Turbo::FramesHelper
   with_collection_parameter :book
   
   def initialize(book:)

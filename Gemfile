@@ -88,3 +88,5 @@ gem "state_machines-activerecord"
 gem "view_component"
 
 gem "faker"
+
+gem "tailwindcss-rails", "~> 2.7"

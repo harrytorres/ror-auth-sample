@@ -8246,14 +8246,8 @@
 
   // app/javascript/controllers/hello_controller.js
   var hello_controller_default = class extends Controller {
-    static targets = ["output"];
     connect() {
-      console.log("HelloController connected");
-      this.outputTarget.textContent = "Hello, Stimulus!";
-    }
-    greet() {
-      const name = this.element.dataset.name || "World";
-      this.outputTarget.textContent = `Hello, ${name}!`;
+      this.element.textContent = "Hello World!";
     }
   };
 

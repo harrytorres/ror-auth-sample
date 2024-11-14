@@ -41,3 +41,5 @@
 /config/credentials/production.key
 
 /db/schema.rb
+/app/assets/builds/*
+!/app/assets/builds/.keep

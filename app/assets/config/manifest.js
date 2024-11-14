@@ -1,5 +1,6 @@
 //= link_tree ../images
 //= link application.sass.css
+//= link application.tailwind.css
 //= link application.css
 
 
@@ -9,3 +10,4 @@
 //= link_directory ../stylesheets/content_type .scss
 
 
+//= link_tree ../builds

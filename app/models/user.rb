@@ -14,7 +14,7 @@ class User < ApplicationRecord
   accepts_nested_attributes_for :book
   
   before_validation :assign_public_uid, on: :create
-  after_create :create_profile
+  # after_create :create_profile
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
